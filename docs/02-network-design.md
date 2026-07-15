@@ -24,7 +24,7 @@ The Version 1 environment was designed to:
 
 ![Version 1 Network Diagram](../diagrams/logical-network-diagram-v1.png)
 
-Version 1 of the lab is built on a dedicated Ubuntu Server virtualization host running VirtualBox. The virtualization host contains two virtual machines:
+Version 1 of the lab is built on a dedicated Ubuntu Server virtualization host running Proxmox. The virtualization host contains two virtual machines:
 
 - DC01-KTQ, a Windows Server 2022 domain controller
 - KTQ-ENG-01, a Windows 11 Enterprise workstation
@@ -49,22 +49,22 @@ Responsibilities include:
 A dedicated laptop running Ubuntu Server serves as the virtualization host for the lab environment. 
 
 Responsibilities include: 
-- Run VirtualBox
+- Run Proxmox
 - Host all Windows virtual machines
 - Provide compute resources for the Active Directory Lab
 - Maintain the isolated virtual network
 
 Separating the virtualization host from the management workstation more closely mirrors enterprise environments, where virtualization infrastructure is typically managed from dedicated administrative workstations.
 
-### VirtualBox
-VirtualBox is the hypervisor used to host the virtual machines that make up the Enterprise Active Directory Lab.
+### Proxmox Virtual Environment (VE)
+Proxmox VE serves as the hypervisor for the project.
 
 Primary responsibilities include:
 
 - Hosting Windows Server and Windows 11 virtual machines
 - Providing isolated virtual networking
 - Supporting snapshots during major deployment milestones
-- Allowing multiple virtual machines to communicate without affecting the home network
+- Managing virtual machine resources and storage
 
 ### Virtual Lab Network
 The virtual lab network provides an isolated environment where all Windows virtual machines communicate with one another. 
