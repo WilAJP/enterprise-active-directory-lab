@@ -67,6 +67,23 @@ KTQ-SALES-01
 - PowerShell
 - Remote Administration
 
+## Physical Lab Environment 
+The Enterprise Active Directory Lab will be hosted on a dedicated homelab environment. 
+
+### Management Workstation
+- Operating System: Linux Mint
+- Purpose:
+    - Create and maintain project documentation
+    - Manage the Git repository
+    - Connect remotely to the virtualization host
+
+### Virtualization Host
+- Hardware: Dedicated laptop
+- Operating System: Ubuntu Server
+- Hypervisor: VirtualBox
+
+The virtualization host will run all Windows Servers and Windows 11 virtual machines used throughout the project. 
+
 ## Success Criteria
 The project will be considered complete when:
 - Windows Server is deployed
