@@ -1,0 +1,19 @@
+# Virtual Machines
+*.vdi
+*.vmdk
+*.vhd
+*.vhdx
+*.qcow2
+
+# Installation Media
+*.iso
+*.ova
+*.ovf
+
+# Secrets
+*password*
+*secret*
+*.key
+
+# Logs
+*.log
