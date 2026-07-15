@@ -49,9 +49,13 @@ DHCP Scope:
 
 ## Planned Clients
 KTQ-ACC-01
+
 KTQ-ENG-01
+
 KTQ-HR-01
+
 KTQ-MGMT-01
+
 KTQ-SALES-01
 
 ## Planned Services
