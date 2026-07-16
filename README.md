@@ -17,3 +17,12 @@ The goal of the project is to gain hands-on experience with:
 - Help Desk Troubleshooting
 
 This repository contains all documentation, diagrams, PowerShell scripts, and troubleshooting tickets created throughout the project.
+
+## Current Progress
+- [X] Project Planning
+- [X] Network Design
+- [X] Virtual machine deployment
+- [X] Windows Server installation
+- [X] Initial server configuration
+- [X] Static IP configuration
+- [X] Server renamed to DC01-KTQ

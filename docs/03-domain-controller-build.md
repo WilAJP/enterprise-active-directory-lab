@@ -51,10 +51,20 @@ The environment will be migrated to a dedicated isolated virtual network in a fu
 
 # Progress
 - [x] Created virtual machine
-- [] Installed Windows Server
-- [] Configured static IP
-- [] Renamed Server
+- [X] Installed Windows Server
+- [X] Configured static IP
+- [X] Renamed Server
 - [] Installed Active Directory
 - [] Configured DNS
 - [] Configured DHCP
 - [] Verified domain functionality
+
+## Time Spent
+
+| Task | Approximate Time |
+|-------|-----------------:|
+| Virtual machine configuration | 20 minutes |
+| Windows Server installation | 15 minutes |
+| VirtIO driver troubleshooting | 25 minutes |
+| Network configuration | 20 minutes |
+| Documentation | 60 minutes |

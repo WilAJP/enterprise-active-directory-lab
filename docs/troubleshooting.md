@@ -14,3 +14,15 @@ The VM was configured to use a VirtIO SCSI virtual disk. Windows Server installa
 - Download the virtio-win.iso.
 - Uploaded it to Proxmox and attached it as a second CD/DVD drive. 
 - Loaded the appropriate VirtIO storage driver during Windows Setup. 
+
+### Resolution 
+The VirtIO storage driver was successfully loaded from the attacted VirtIO driver ISO. 
+
+Windows Setup immediately detected the virtual disk, allowing the installation to continue normally. 
+
+After Windows installation completed, the VirtIO network driver wa also installed through Device Manager, enabling the Red Hat VirtIO Ethernet Adapter. 
+
+### Lessons Learned
+Windows Server Installation media does not include all VirtIO drivers by default. 
+
+When deploying Windows virtual machines on Proxmox using VirtIO devices, the VirtIO driver ISO should be attached before beginning the installation. 
