@@ -1,24 +1,29 @@
 # Domain Controller Deployment
 
-**Server:** DC01-KTQ
+## Objective
 
-**Operating System:** Windows Server 2022 Evaluation
+The goal of this phase was to deploy the first Windows Server virtual machine for the Kinetiq Technologies environment. This server will serve as the primary Domain Controller and provide the foundation for Active Directory, DNS, DHCP, and the other infrastructure services that will be added throughout the project.
 
-**Hypervisor:** Proxmox VE
+---
 
-**Status:** In Progress
+## Environment
 
-# Objectives
-Deploy the first Windows Server virtual machine that will later become the Active Directory Domain Controller for the Enterprise Active Directory Lab. 
+| Component | Value |
+|-----------|-------|
+| Server Name | DC01-KTQ |
+| Operating System | Windows Server 2022 Standard Evaluation |
+| Hypervisor | Proxmox VE |
+| Firmware | UEFI (OVMF) |
+| Machine Type | q35 |
 
-# Planning
-Before installing Windows Server, the virtual machine was configured with hardware resources appropriate for a domain controller. 
+---
 
-The goal was to provide sufficient performance while preserving host resources for future servers and client workstations. 
+## Virtual Machine Configuration
 
-# Virtual Hardware Configuration 
+Before installing Windows Server, I created a virtual machine in Proxmox and allocated resources appropriate for a small Active Directory environment.
+
 | Component | Configuration |
-|------------|---------------|
+|-----------|---------------|
 | Hypervisor | Proxmox VE |
 | Firmware | UEFI (OVMF) |
 | Machine Type | q35 |
@@ -30,31 +35,85 @@ The goal was to provide sufficient performance while preserving host resources f
 | Network Adapter | VirtIO |
 | Network Bridge | vmbr0 |
 
-# Design Decisions
+---
 
-## Why UEFI?
-Modern Windows Server deployments use UEFI firmware because it provides improved hardware compatibility, Secure Boot support, and aligns with current enterprise hardware standards. 
+## Configuration
 
-## Why 4 GB RAM?
-A domain controller requires relatively little memory compared to application or database servers. Allocating 4 GB provides sufficient resources while leaving capacity available for additional virtual machines. 
+The virtual machine was created in Proxmox using UEFI firmware, a VirtIO SCSI disk controller, and a VirtIO network adapter. These settings provide good compatibility with Windows Server while matching modern virtualization practices.
 
-## Why 2 vCPUs?
-Authentication, DNS, and DHCP are lightweight workloads in a homelab environment. Two virtual CPUs provide adequate performance without unnecessarily consuming host resources. 
+A 60 GB virtual disk, 2 vCPUs, and 4 GB of memory were allocated to provide enough resources for a domain controller without consuming unnecessary host resources.
 
-## Why 60 GB?
-A 60 GB virtual disk provides enough capacity for Windows Server, Active Directory, DNS, DHCP, logs and future configuration changes while avoiding unnecessary storage allocation. 
+![VM Summary](../images/domain-controller/01-vm-summary.png)
 
-## Why vmbr0?
-The initial deployment uses the default proxmox bridge to simplify installation, provide internet connectivity, and allow Windows Updates. 
+Windows Server 2022 Standard Evaluation was then installed on the virtual machine.
 
-The environment will be migrated to a dedicated isolated virtual network in a future project. 
 
-# Progress
-- [X] Created virtual machine
-- [X] Installed Windows Server
-- [X] Configured static IP
-- [X] Renamed Server
-- [X] Installed Active Directory
-- [] Configured DNS
-- [] Configured DHCP
-- [] Verified domain functionality
+![Windows Server Installation](../images/domain-controller/02-windows-install.png)
+
+
+After the installation completed, I signed in using the local Administrator account to perform the initial server configuration.
+
+![First Login](../images/domain-controller/03-first-login.png)
+
+
+Server Manager was used as the starting point for the remaining configuration tasks.
+
+![Server Manager](../images/domain-controller/04-server-manager.png)
+
+
+The server was then renamed from the default Windows hostname to **DC01-KTQ** to match the naming convention established during the planning phase.
+
+Renaming the server before installing Active Directory helps avoid additional configuration changes after the server has been promoted to a domain controller.
+
+![Server Renamed](../images/domain-controller/05-server-renamed.png)
+
+
+---
+
+## Design Decisions
+
+Several decisions were made during the deployment to keep the environment simple while leaving room for future expansion.
+
+### UEFI Firmware
+
+UEFI was selected because it reflects modern server deployments and supports features such as Secure Boot.
+
+### Virtual Hardware
+
+A domain controller has relatively light resource requirements in a homelab environment. Allocating 2 vCPUs and 4 GB of memory provides enough performance while leaving capacity available for additional virtual machines.
+
+### Storage
+
+A 60 GB virtual disk provides sufficient space for Windows Server, Active Directory, DNS, DHCP, logs, and future configuration changes.
+
+### Network Bridge
+
+The server was initially connected to **vmbr0** so it could access the internet during installation and receive Windows updates. The lab network will be migrated to a dedicated isolated virtual network in a later phase.
+
+---
+
+## Verification
+
+The following checks were completed before moving on to the next phase:
+
+- Windows Server installed successfully.
+- The server booted without errors.
+- Server Manager opened normally after login.
+- The hostname was successfully changed to **DC01-KTQ**.
+- The server rebooted successfully after the rename.
+
+These checks confirmed that the server was ready for Active Directory installation.
+
+---
+
+## Lessons Learned
+
+This phase gave me a better understanding of how much planning goes into deploying a server before any services are installed. Choosing the virtual hardware, naming the server correctly, and verifying the operating system all help avoid unnecessary changes later in the deployment.
+
+I also became more familiar with the initial Windows Server setup process and the role Server Manager plays in managing server features and roles.
+
+---
+
+## Next Steps
+
+With the base server deployed and configured, the next phase will focus on installing the Active Directory Domain Services role and promoting **DC01-KTQ** to the first domain controller in the Kinetiq Technologies environment.
