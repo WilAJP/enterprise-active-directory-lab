@@ -4,28 +4,18 @@
 
 This project documents the design, deployment, and administration of a simulated enterprise Windows environment built in a Proxmox homelab.
 
-The goal of this lab is to gain hands-on experience building and managing common Windows Server infrastructure used in enterprise environments. Each phase is documented with implementation steps, verification, screenshots, and technical notes as the lab is completed.
+The goal of this lab is to gain hands-on experience with Windows Server administration and common enterprise infrastructure including Active Directory, DNS, DHCP, Group Policy, file services, and help desk administration. Each phase is documented as it is completed.
 
 ## Technologies & Skills
 
 * Windows Server 2022
+* Proxmox VE
 * Active Directory Domain Services (AD DS)
 * DNS
-* DHCP
-* Group Policy
-* File Services
-* Print Services
-* PowerShell
+* DHCP *(planned)*
+* Group Policy *(planned)*
+* PowerShell *(planned)*
 * Windows Server Administration
-* Help Desk Troubleshooting
-
-## Repository Contents
-
-* Phase-by-phase implementation documentation
-* Network diagrams
-* Screenshots and verification
-* PowerShell scripts
-* Simulated help desk scenarios and troubleshooting
 
 ## Current Progress
 
