@@ -1,28 +1,44 @@
-# Enterprise Active Directory Help Desk Lab
+# Enterprise Active Directory Homelab
 
 ## Overview
 
-This project documents the design, deployment, and administration of a simulated enterprise Windows environment built within my homelab.
+This project documents the design, deployment, and administration of a simulated enterprise Windows environment built in a Proxmox homelab.
 
-The goal of the project is to gain hands-on experience with:
+The goal of this lab is to gain hands-on experience building and managing common Windows Server infrastructure used in enterprise environments. Each phase is documented with implementation steps, verification, screenshots, and technical notes as the lab is completed.
 
-- Active Directory
-- DNS
-- DHCP
-- Group Policy
-- File Services
-- Print Services
-- PowerShell
-- Windows Server Administration
-- Help Desk Troubleshooting
+## Technologies & Skills
 
-This repository contains all documentation, diagrams, PowerShell scripts, and troubleshooting tickets created throughout the project.
+* Windows Server 2022
+* Active Directory Domain Services (AD DS)
+* DNS
+* DHCP
+* Group Policy
+* File Services
+* Print Services
+* PowerShell
+* Windows Server Administration
+* Help Desk Troubleshooting
+
+## Repository Contents
+
+* Phase-by-phase implementation documentation
+* Network diagrams
+* Screenshots and verification
+* PowerShell scripts
+* Simulated help desk scenarios and troubleshooting
 
 ## Current Progress
-- [X] Project Planning
-- [X] Network Design
-- [X] Virtual machine deployment
-- [X] Windows Server installation
-- [X] Initial server configuration
-- [X] Static IP configuration
-- [X] Server renamed to DC01-KTQ
+
+* [x] Project planning
+* [x] Network design
+* [x] Virtual machine deployment
+* [x] Windows Server installation
+* [x] Initial server configuration
+* [x] Static IP configuration
+* [x] Server renamed to **DC01-KTQ**
+* [x] Active Directory Domain Services (AD DS) installation
+* [x] Domain controller promotion
+* [x] Enterprise Organizational Unit design
+* [x] Organizational Unit implementation
+
+This repository is updated as each phase of the lab is completed and documented.
